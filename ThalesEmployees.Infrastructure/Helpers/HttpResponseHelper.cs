@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ThalesEmployees.Core.Application.Exceptions;
 
 namespace ThalesEmployees.Infrastructure.Helpers
 {
@@ -12,7 +8,7 @@ namespace ThalesEmployees.Infrastructure.Helpers
         {
             var stringfyResponse = await response.Content.ReadAsStringAsync();
             if (stringfyResponse.StartsWith("<!DOCTYPE html>"))
-                throw new Exception("Too Many Requests");
+                throw new TooManyRequestsException("Too Many Requests to the base API");
             return stringfyResponse;
         }
     }

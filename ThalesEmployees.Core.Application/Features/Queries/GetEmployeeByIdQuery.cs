@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThalesEmployees.Core.Application.Exceptions;
 using ThalesEmployees.Core.Domain.Contracts;
 
 namespace ThalesEmployees.Core.Application.Features.Queries
@@ -31,7 +32,7 @@ namespace ThalesEmployees.Core.Application.Features.Queries
         public async Task<GetEmployeeByIdResponse> Handle(GetEmployeeByIdRequest request, CancellationToken cancellationToken)
         {
             var employee = await _readRepositoryEmployee.GetByIdAsync(request.Id);
-            _ = employee ?? throw new Exception("Not found");
+            _ = employee ?? throw new NotFoundException("Not found");
 
             return employee.Adapt<GetEmployeeByIdResponse>();
         }

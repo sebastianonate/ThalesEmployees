@@ -18,6 +18,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseInfrastructure();
 app.UseStaticFiles();
 app.UseRouting();
 
