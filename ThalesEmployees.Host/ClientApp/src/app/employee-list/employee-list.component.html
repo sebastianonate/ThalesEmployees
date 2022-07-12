@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="form-group">
+    <mat-form-field class="input-full-width" appearance="outline">
+      <mat-label>Clearable input</mat-label>
+      <input matInput type="text" [(ngModel)]="valueToSearch" (keyup.enter)="getEmployee()">
+      <button matSuffix mat-icon-button aria-label="Search" (click)="getEmployee()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <span *ngIf="verifyNumber()">It's not a valid ID.</span>
+  </div>
+</div>
+
+<div class="row" style="padding-top: 40px;">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Salary Column -->
+    <ng-container matColumnDef="salary">
+      <th mat-header-cell *matHeaderCellDef> Salary </th>
+      <td mat-cell *matCellDef="let element"> {{element.salary | currency}} </td>
+    </ng-container>
+
+    <!-- Age Column -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+
+    <!-- Annual Salary Column -->
+    <ng-container matColumnDef="annualSalary">
+      <th mat-header-cell *matHeaderCellDef> Annual Salary </th>
+      <td mat-cell *matCellDef="let element"> {{element.annualSalary | currency}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -18,7 +18,7 @@ namespace ThalesEmployees.Core.Application.Features.Queries
         public decimal Salary { get; set; }
         public int Age { get; set; }
         public string ProfileImage { get; set; }
-        public decimal AnualSalary { get; set; }
+        public decimal AnnualSalary { get; set; }
     }
     public class GetEmployeeByIdQuery : IRequestHandler<GetEmployeeByIdRequest, GetEmployeeByIdResponse>
     {
