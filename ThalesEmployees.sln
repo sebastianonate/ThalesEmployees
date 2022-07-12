@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThalesEmployees.Core.Domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThalesEmployees.Core.Application", "ThalesEmployees.Core.Application\ThalesEmployees.Core.Application.csproj", "{A8028BCB-64C4-445C-9139-C5E23E7FB16F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3B8682D2-BDAC-46D7-806E-89E7AE942C24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThalesEmployees.Core.Tests", "ThalesEmployees.Core.Tests\ThalesEmployees.Core.Tests.csproj", "{DBDD5A3F-8271-4EC1-8983-9AD077C5A862}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{A8028BCB-64C4-445C-9139-C5E23E7FB16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8028BCB-64C4-445C-9139-C5E23E7FB16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8028BCB-64C4-445C-9139-C5E23E7FB16F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBDD5A3F-8271-4EC1-8983-9AD077C5A862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDD5A3F-8271-4EC1-8983-9AD077C5A862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDD5A3F-8271-4EC1-8983-9AD077C5A862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDD5A3F-8271-4EC1-8983-9AD077C5A862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D741B5E7-ADB3-4153-B5D8-0B13B4C0C71C} = {8DD465FE-2C89-43A6-949C-A52D286058C4}
 		{A8028BCB-64C4-445C-9139-C5E23E7FB16F} = {8DD465FE-2C89-43A6-949C-A52D286058C4}
+		{DBDD5A3F-8271-4EC1-8983-9AD077C5A862} = {3B8682D2-BDAC-46D7-806E-89E7AE942C24}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {552954F7-DD6D-47FB-8BB5-3A945B826B5A}

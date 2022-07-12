@@ -24,7 +24,7 @@ namespace ThalesEmployees.Core.Application.Features.Commands
             var employee = await _readRepositoryEmployee.GetByIdAsync(request.EmployeeId);
             _ = employee ?? throw new NotFoundException("Employee not found");
 
-            return employee.AnnualSalary;
+            return employee.GetAnnualSalary();
         }
     }
 }

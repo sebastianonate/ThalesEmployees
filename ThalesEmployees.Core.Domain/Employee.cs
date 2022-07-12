@@ -7,6 +7,8 @@
         public decimal Salary { get; set; }
         public int Age { get; set; }
         public string ProfileImage { get; set; }
-        public decimal AnnualSalary => Salary * 12;
+        public decimal AnnualSalary => GetAnnualSalary();
+
+        public decimal GetAnnualSalary() => Salary * 12;
     }
 }
