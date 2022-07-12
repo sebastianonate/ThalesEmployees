@@ -9,8 +9,8 @@ using ThalesEmployees.Core.Domain.Contracts;
 
 namespace ThalesEmployees.Core.Application.Features.Queries
 {
-    public record GetAllEmployeesRequest : IRequest<List<EmployeeForGetAllDto>>;
-    public record EmployeeForGetAllDto 
+    public record GetEmployeeByIdRequest(int Id) : IRequest<GetEmployeeByIdResponse>;
+    public record GetEmployeeByIdResponse 
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,20 +18,22 @@ namespace ThalesEmployees.Core.Application.Features.Queries
         public int Age { get; set; }
         public string ProfileImage { get; set; }
         public decimal AnualSalary { get; set; }
-
     }
-    public class GetAllEmployeesQuery : IRequestHandler<GetAllEmployeesRequest, List<EmployeeForGetAllDto>>
+    public class GetEmployeeByIdQuery : IRequestHandler<GetEmployeeByIdRequest, GetEmployeeByIdResponse>
     {
         private readonly IReadRepositoryEmployee _readRepositoryEmployee;
 
-        public GetAllEmployeesQuery(IReadRepositoryEmployee readRepositoryEmployee)
+        public GetEmployeeByIdQuery(IReadRepositoryEmployee readRepositoryEmployee)
         {
             _readRepositoryEmployee = readRepositoryEmployee;
         }
 
-        public async Task<List<EmployeeForGetAllDto>> Handle(GetAllEmployeesRequest request, CancellationToken cancellationToken)
+        public async Task<GetEmployeeByIdResponse> Handle(GetEmployeeByIdRequest request, CancellationToken cancellationToken)
         {
-            return (await _readRepositoryEmployee.GetAllAsync()).Adapt<List<EmployeeForGetAllDto>>();
+            var employee = await _readRepositoryEmployee.GetByIdAsync(request.Id);
+            _ = employee ?? throw new Exception("Not found");
+
+            return employee.Adapt<GetEmployeeByIdResponse>();
         }
     }
 }

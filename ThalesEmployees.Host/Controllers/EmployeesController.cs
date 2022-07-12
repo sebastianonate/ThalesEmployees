@@ -19,7 +19,13 @@ namespace ThalesEmployees.Host.Controllers
         [HttpGet]
         public async Task<List<EmployeeForGetAllDto>> GetAll()
         {
-            return await _mediator.Send(new GetAllEmployeeRequest());
+            return await _mediator.Send(new GetAllEmployeesRequest());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<GetEmployeeByIdResponse> GetById(int id)
+        {
+            return await _mediator.Send(new GetEmployeeByIdRequest(id));
         }
     }
 }
